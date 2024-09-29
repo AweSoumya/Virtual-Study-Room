@@ -1,0 +1,201 @@
+/* General Layout */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F5F5F5;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Navigation Bar */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #1E3A8A; /* Deep blue shade */
+    color: #fff;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  nav ul li {
+    margin: 0 10px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  /* Hero Section */
+  .hero {
+    text-align: center;
+    padding: 60px;
+    background-color: #48BFE3; /* Brighter teal */
+    color: white;
+  }
+  
+  .hero h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 1.2em;
+  }
+  
+  .hero .btn {
+    padding: 10px 20px;
+    background-color: #64DFDF; /* Lighter teal */
+    color: #1E3A8A; /* Deep blue */
+    text-decoration: none;
+    font-size: 1.1em;
+    border-radius: 5px;
+  }
+  
+  .hero .btn:hover {
+    background-color: #72EFDD; /* Slightly lighter teal on hover */
+  }
+  
+  /* Form Styling */
+  .form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #1E3A8A; /* Deep blue */
+  }
+  
+  .form-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-container label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-container input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .form-container .btn {
+    padding: 10px;
+    background-color: #4EA8DE; /* Sky blue */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .form-container .btn:hover {
+    background-color: #48BFE3; /* Brighter blue on hover */
+  }
+  
+  .form-container p {
+    text-align: center;
+  }
+  
+  /* Room Card Styles */
+  .rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin: 20px;
+  }
+  
+  .room-card {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .room-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .room-card h3 {
+    font-size: 1.2em;
+    color: #6930C3; /* Medium purple */
+  }
+  
+  .room-card p {
+    font-size: 1em;
+    color: #555;
+  }
+  
+  .room-card button {
+    padding: 10px;
+    background-color: #4EA8DE; /* Sky blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .room-card button:hover {
+    background-color: #5390D9; /* Soft blue */
+  }
+  
+  /* Create Room Button */
+  .create-room {
+    margin: 20px;
+    text-align: center;
+  }
+  
+  .create-room button {
+    padding: 10px 20px;
+    background-color: #48BFE3; /* Brighter teal */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .create-room button:hover {
+    background-color: #4EA8DE; /* Sky blue */
+  }
+  
+  /* Profile Page */
+  .profile-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .profile-info img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+  }
+  
+  .profile-info h2 {
+    margin: 10px 0;
+    color: #6930C3; /* Medium purple */
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .rooms-grid {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+  }
+  
