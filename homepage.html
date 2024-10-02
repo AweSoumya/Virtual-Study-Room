@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Room Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Add some basic styles for the chat section */
+        #messages {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            max-height: 400px;
+            overflow-y: auto;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        #messages li {
+            padding: 8px;
+            margin-bottom: 5px;
+            background-color: #f1f1f1;
+            border-radius: 4px;
+            word-wrap: break-word;
+        }
+
+        #form {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        #input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+
+        #send {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <h1>Study Rooms</h1>
+        <ul>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Join or Create Study Rooms!</h2>
+        <p>Collaborate and learn with peers in real-time.</p>
+        <a href="study_room_interface.html" class="btn">Get Started</a>
+    </section>
+
+    <!-- Timer Section (Modified) -->
+    <section class="timer-section">
+        <div class="timer-container">
+            <h3>Study Timer</h3>
+            <div id="timer">00:00:00</div>
+            <div class="timer-buttons">
+                <button id="startBtn">Start Timer</button>
+                <button id="stopBtn" disabled>Stop Timer</button>
+            </div>
+
+            <!-- Progress Tracking Feature -->
+            <div class="progress-tracker">
+                <h4>Set Your Study Goal (in hours):</h4>
+                <input type="number" id="studyGoal" min="1" placeholder="Enter hours" />
+                <button id="setGoalBtn">Set Goal</button>
+                <p id="goalStatus">No goal set.</p>
+
+                <!-- Progress Bar -->
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+
+                <p id="progressMessage"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Section -->
+    <section class="chat-section">
+        <h2>Chat Room</h2>
+        <ul id="messages"></ul>
+        <form id="form" action="">
+            <input id="input" autocomplete="off" placeholder="Type your message..." />
+            <button id="send">Send</button>
+        </form>
+    </section>
+
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script>
+        const socket = io(); // Make sure you have a server running with Socket.io
+
+        const form = document.getElementById('form');
+        const input = document.getElementById('input');
+        const messages = document.getElementById('messages');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            if (input.value) {
+                socket.emit('chat message', input.value);
+                input.value = '';
+            }
+        });
+
+        socket.on('chat message', function (msg) {
+            const item = document.createElement('li');
+            item.textContent = msg;
+            messages.appendChild(item);
+            window.scrollTo(0, document.body.scrollHeight);
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
